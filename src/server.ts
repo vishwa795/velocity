@@ -39,7 +39,7 @@ if (EnvVars.nodeEnv === NodeEnvs.Production.valueOf()) {
 
 // Add APIs, must be after middleware
 
-app.use("/products", productsRouter);
+app.use("/v1/products", productsRouter);
 
 // Add error handler
 app.use(
