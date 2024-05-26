@@ -1,16 +1,18 @@
-import { NextFunction, Response } from "express";
+import { NextFunction, Response, Request } from "express";
 import { GetProductArgs } from "../../controllers/products/types";
 import { IReq } from "../../routes/types/types";
 import getProduct from "../../controllers/products/get-product";
 
 export default async function getProductHandler(
-  req: IReq<GetProductArgs>,
+  req: Request,
   res: Response,
   next: NextFunction
 ) {
   try {
-    const productArgs = req.body;
-    const { status, success, data, error } = await getProduct(productArgs);
+    const { id } = req.params;
+    const { status, success, data, error } = await getProduct({
+      id: parseInt(id as string),
+    });
     res.status(status).json({ success, data, error });
   } catch (error) {
     console.error("ERROR ======> getProductHandler", error);

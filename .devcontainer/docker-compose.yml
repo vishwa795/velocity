@@ -1,0 +1,25 @@
+version: "3.7"
+services:
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  velocity:
+    image: mcr.microsoft.com/vscode/devcontainers/typescript-node:latest
+    command: sh -c "yarn && yarn dev"
+    environment:
+      - SHELL=/bin/bash
+    volumes:
+      - ..:/workspace:cached
+    working_dir: /workspace
+    ports:
+      - 3000:3000
+    expose:
+      - 3000
+
+volumes:
+  mysql-data:

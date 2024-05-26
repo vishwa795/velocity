@@ -19,6 +19,11 @@ const prisma = new PrismaClient({
       level: "warn",
     },
   ],
+  datasources: {
+    db: {
+      url: process.env.DATABASE_URL,
+    },
+  },
 });
 
 export default prisma;

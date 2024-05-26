@@ -1,3 +1,4 @@
+require("dotenv").config();
 import logger from "jet-logger";
 
 import envVars from "./constants/env";
