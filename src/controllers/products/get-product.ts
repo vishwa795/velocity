@@ -14,11 +14,15 @@ export default async function getProduct({
         supplier: true,
       },
     });
+    if (product.archive) {
+      throw new Error();
+    }
+
     return { status: 200, success: true, data: product };
   } catch (e) {
     console.log("ERROR =====> getProduct", e);
     return {
-      status: HttpStatusCodes.BAD_REQUEST,
+      status: HttpStatusCodes.NOT_FOUND,
       success: false,
       error: {
         code: "FAIL",

@@ -10,7 +10,7 @@
 ## Pre requisites
 
 1.  Docker
-2.  VSCode
+2.  VSCode with devcontainer extension installed.
 
 ## Steps to start Development
 
@@ -24,8 +24,11 @@
 ### Steps to run the docker container manually
 
 1.  Navigate to the folder containing the project and execute the command `docker-compose -f .devcontainer/docker-compose.yml`
-2.  For the first time, you will have to manually set up yarn and install all dependencies. For that, get inside the container running the app. run the command `yarn` and then run `yarn migrate`.
-3.  Your app should be good to be run now.
+2.  For the first time, you will have to manually set up yarn and install all dependencies. For that, get inside the container running the app. run the following commands:
+    1. `npm install --global yarn`
+    2. `yarn`
+    3. `yarn migrate`
+3.  Your app should be good to be run now. You can access the application at `http://localhost:3000`
 
 ## Steps to run SQL Migations in Local
 
