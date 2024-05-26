@@ -14,7 +14,7 @@
 
 ## Steps to start Development
 
-### Steps tp run using vscode devcontainer extension.
+### Steps to run using vscode devcontainer extension.
 
 1.  Clone the repo into your local filesystem.
 2.  Navigate to the folder containing the project and execute the command `code velocity` to open the project in vscode.
